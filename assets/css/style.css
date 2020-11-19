@@ -1,0 +1,38 @@
+body {
+    font-family: "Crimson";
+}
+
+.main {
+    background: #58f5451f;
+}
+
+.logo {
+    padding-top: 100px;
+}
+
+.btn-home {
+    background-color: #88f33163;
+}
+
+.btn-home:hover {
+    background-color: #97e625a8;
+    transform: scale(1.2);
+}
+
+.social a i {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #111;
+    line-height: 30px;
+    color: #111;
+    font-size: 20px;
+}
+
+.social a:hover i {
+    border-color: #97e625a8;
+    background-color: #97e625a8;
+}
+
+footer li i:hover {
+    transform: scale(1.2);
+}
