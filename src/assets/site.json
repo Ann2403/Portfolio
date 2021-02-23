@@ -1,0 +1,46 @@
+{
+    "sites":[
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        },
+        {
+            "title": "Мини игры",
+            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "image": "images/game.png",
+            "reference": "game.annazubenko.ru"
+        }
+    ]
+}

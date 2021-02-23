@@ -9,7 +9,7 @@
                 </div>
                 <div class="hidden-xs hidden-sm col-md-6 pl-5">
                     <ul>
-                        <li class="d-inline mr-3" v-for="(social, i) in socialList">
+                        <li class="d-inline mr-3" v-for="(social, i) in socialList" :key="i">
                             <a class="text-dark" :href="social.link" target="_blank"><i :class="social.icon"></i></a>
                         </li>
                     </ul>
@@ -39,7 +39,7 @@ export default {
                 },
                 {
                     icon: 'fa fa-linkedin',
-                    link: 'https://www.linkedin.com/in/ann-zubenko-798594151'
+                    link: 'https://www.linkedin.com/in/zubenko-anna'
                 }
             ]
         }

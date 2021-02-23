@@ -1,45 +1,95 @@
 <template>
-    <div class="row">
-        <div class="col-sm">
-            <img class="img-fluid" src="../assets/images/contact.jpg" alt="photo">
-        </div>
-
-        <div class="col-sm text-center">
-            <app-nav :menu='false'></app-nav>
-            <h2 class="text-uppercase mt-5">Contact</h2>
-            <p class="font-italic font-weight-bold my-4">
-                I'm based in cheltenham in the UK, not far from Bristol,
-                Birmingham, Oxford and Swindom. Drop me a line.
+    <div class="col-sm text-center">
+        <app-nav :menu='false'></app-nav>
+        <h3 class="text-uppercase mt-5">Контакты</h3>
+        <div class="row my-4">
+            <p class="font-italic font-weight-bold col-sm">
+                Адрес: Украина, г.Днепр
             </p>
-            <form method="POST" action="send.php">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-
-                <div class="form-group">
-                    <textarea class="form-control" rows="5" name="text" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-home border-dark">Send Message</button>
-            </form>
+            <p class="font-italic font-weight-bold col-sm">
+                Телефон:
+                <a class="text-dark" href="tel:+380965202933">0965202933</a>
+            </p>
         </div>
+
+        <form @submit="submitToEmail">
+            <h5 class="text-uppercase my-5">Связаться со мной:</h5>
+            <app-input v-for='(obj, index) in infoInput' :key="'input' + index"
+                       :name='obj.name' :pattern='obj.pattern' :value='obj.value' :typeInput="obj.type"
+                       :nameLabel = 'obj.nameLabel'
+                       @changeValue='onChange(index, $event)'>
+            </app-input>
+            <app-area v-for='(obj, index) in infoArea' :key="'area' + index"
+                      :value='obj.value' :nameArea = 'obj.nameArea'
+                      @changeValue='onChange(index, $event)'>
+            </app-area>
+            <button type="submit" class="btn btn-outline-primary border-dark">
+                Отправить</button>
+        </form>
     </div>
 </template>
 
 <script>
 import AppNav from '../components/Nav'
+import AppInput from '../components/Input'
+import AppArea from '../components/TextArea'
+import AppModal from '../components/ModalWindow'
 
 export default {
     name: "Contacts",
     components: {
-        AppNav
+        AppNav,
+        AppInput,
+        AppArea,
+        AppModal
+    },
+    data() {
+        return {
+            infoInput: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    nameLabel: 'Ваше имя',
+                    value: '',
+                    pattern: /^[а-яА-Яa-zA-Z]{2,30}$/
+                },
+                {
+                    name: 'email',
+                    type: 'email',
+                    nameLabel: 'Ваш email',
+                    value: '',
+                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+                }
+            ],
+            infoArea: [
+                {
+                    name: 'text',
+                    nameArea: 'Текст сообщения',
+                    value: ''
+                }
+            ]
+        }
+    },
+    methods: {
+        onChange(index, data) {
+            if(data.type === 'area') {
+                this.infoArea[index].value = data.value;
+            } else {
+                this.infoInput[index].value = data.value;
+            }
+        },
+        submitToEmail(e) {
+            e.preventDefault();
+
+            this.$axios
+                .post(
+                    "https://theServer.com/mail.php",
+                    querystring.stringify(this.form)
+                )
+                .then(res => {
+                    this.sent = true;
+                });
+        }
     }
 }
 </script>
-
-<style scoped>
-
-</style>

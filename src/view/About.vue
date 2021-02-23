@@ -1,26 +1,22 @@
 <template>
-        <div class="row">
-            <div class="col-sm">
-                <img class="img-fluid" src="../assets/images/about.jpg" alt="photo">
+        <div class="col-sm text-center">
+            <app-nav :menu='false'></app-nav>
+            <h2 class="text-uppercase mt-5">О СЕБЕ</h2>
+            <p class="h5 font-italic font-weight-bold my-4">
+                Привет, я Анна. Начинающий веб-разработчик, имею практические навыки верстки, работы с
+                фреймворком Vue.js и РНР.
+            </p>
+            <div class="text-left my-3">
+                <h5 class="font-weight-bold">Навыки:</h5>
+                <ul class="list-group">
+                    <li class="listSkills" v-for="(skill, index) in skills" :key="index">{{skill}}</li>
+                </ul>
             </div>
-
-            <div class="col-sm text-center">
-                <app-nav :menu='false'></app-nav>
-                <h2 class="text-uppercase mt-5">О СЕБЕ</h2>
-                <p class="h5 font-italic font-weight-bold my-4">
-                    Привет, я Анна. Начинающий веб-разработчик, имею практические навыки верстки, работы с
-                    фреймворком Vue.js и РНР.
-                </p>
-                <p class="font-italic">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat."
-                </p>
+            <div class="text-right">
+                <a type="button" class="btn btn-info" target="_blank"
+                   href="https://drive.google.com/file/d/1gOoYh-yAuxE8HVLBXH3wh436RM-dCXca/view?usp=sharing">
+                    Скачать резюме
+                </a>
             </div>
         </div>
 </template>
@@ -32,10 +28,25 @@ export default {
     name: "About",
     components: {
         AppNav
+    },
+    data() {
+        return {
+            skills: [
+                'JavaScript, VueJs',
+                'PHP, MySQL',
+                'HTML, CSS, адаптивная верстка',
+                'SCSS/SASS, Bootstrap, БЭМ',
+                'Git',
+                'Figma, Avacode, Photoshop',
+                'Английский Elementary'
+            ]
+        }
     }
 }
 </script>
 
 <style scoped>
-
+.listSkills {
+    list-style: none;
+}
 </style>

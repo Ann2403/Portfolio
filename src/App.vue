@@ -1,9 +1,17 @@
 <template>
   <div id="app">
       <div class="container main">
-          <transition name='dark_danger' mode="out-in">
-              <router-view/>
-          </transition>
+          <div class="row">
+              <transition name='entry_left'>
+                  <div class="col-sm" v-if="$route.path !== '/work'">
+                      <img class="img-fluid mb-0" src="./assets/images/photo.png" alt="photo">
+                  </div>
+              </transition>
+
+              <transition name='entry_right' mode="out-in">
+                  <router-view/>
+              </transition>
+          </div>
       </div>
       <transition name='dark_danger'>
           <app-footer v-if="$route.path !== '/'"></app-footer>
@@ -40,8 +48,12 @@ body {
 
 }
 
-.dark_danger-enter-active{
-    animation: slideIn 0.5s;
+.entry_right-enter-active {
+    animation: slideInRight 0.5s;
+}
+
+.entry_left-enter-active {
+    animation: slideInLeft 0.5s;
 }
 
 .dark_danger-enter-to{
@@ -52,7 +64,8 @@ body {
     /*position: absolute;*/
 }
 
-.dark_danger-leave-active{
+.entry_right-leave-active,
+.entry_left-leave-active {
     animation: slideOut 0.5s;
 }
 
@@ -60,13 +73,18 @@ body {
     /*position: absolute;*/
 }
 
-@keyframes slideIn {
+@keyframes slideInRight {
     from{transform: translateX(2000px);}
+    to{transform: translateX(0px);}
+}
+
+@keyframes slideInLeft {
+    from{transform: translateX(-2000px);}
     to{transform: translateX(0px);}
 }
 
 @keyframes slideOut {
     from{transform: translateX(0px);}
-    to{transform: translateX(-2000px);}
+    to{transform: translateX(2000px);}
 }
 </style>
