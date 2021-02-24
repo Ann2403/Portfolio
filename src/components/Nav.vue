@@ -7,7 +7,7 @@
                 {{ btnObj.name }}
             </router-link>
         </div>
-        <div class="btn-group mt-3" v-else>
+        <div class="btn-group my-5" v-else>
             <router-link v-for="btnObj in btnGroup" :to="btnObj.page"
                          class="btn mr-3 btn-home border-dark font-weight-bold"
                          :key="btnObj.key">

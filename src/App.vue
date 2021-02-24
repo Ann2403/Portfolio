@@ -1,34 +1,42 @@
 <template>
-  <div id="app">
-      <div class="container main">
-          <div class="row">
-              <transition name='entry_left'>
-                  <div class="col-sm" v-if="$route.path !== '/work'">
-                      <img class="img-fluid mb-0" src="./assets/images/photo.png" alt="photo">
-                  </div>
-              </transition>
+    <div id="app">
+        <div class="container main">
+            <div class="row">
+                <transition name='entry_left'>
+                    <div class="col-sm" v-if="$route.path !== '/work'">
+                        <img class="img-fluid my-auto" src="static/images/photo.png" alt="photo">
+                    </div>
+                </transition>
 
-              <transition name='entry_right' mode="out-in">
-                  <router-view/>
-              </transition>
-          </div>
-      </div>
-      <transition name='dark_danger'>
-          <app-footer v-if="$route.path !== '/'"></app-footer>
-      </transition>
-  </div>
+                <transition name='entry_right' mode="out-in">
+                    <router-view @modalShow='modalShow'/>
+                </transition>
+            </div>
+        </div>
+        <app-modal v-if="showModal" @modalClose='modalShow'></app-modal>
+        <transition name='dark_danger'>
+            <app-footer v-if="$route.path !== '/'"></app-footer>
+        </transition>
+    </div>
 </template>
 
 <script>
 import AppFooter from './components/Footer'
+import AppModal from './components/ModalWindow'
 
 export default {
     components: {
-        AppFooter
+        AppFooter,
+        AppModal
     },
     data() {
         return {
-
+            showModal: false
+        }
+    },
+    methods: {
+        modalShow() {
+            this.showModal = !this.showModal;
         }
     }
 }
@@ -41,11 +49,7 @@ body {
 
 .main {
     background: #45f5f51f;
-    height: 800px;
-}
-
-.dark_danger-enter{
-
+    height: 750px;
 }
 
 .entry_right-enter-active {
@@ -56,21 +60,9 @@ body {
     animation: slideInLeft 0.5s;
 }
 
-.dark_danger-enter-to{
-
-}
-
-.dark_danger-leave{
-    /*position: absolute;*/
-}
-
 .entry_right-leave-active,
 .entry_left-leave-active {
     animation: slideOut 0.5s;
-}
-
-.dark_danger-leave-to{
-    /*position: absolute;*/
 }
 
 @keyframes slideInRight {
