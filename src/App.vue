@@ -1,10 +1,15 @@
 <template>
     <div id="app">
         <div class="container main">
+          <div class="appContainerNav">
+            <app-nav :menu='false' v-if="$route.path !== '/'"></app-nav>
+          </div>
+
             <div class="row">
                 <transition name='entry_left'>
-                    <div class="col-sm" v-if="$route.path !== '/work'">
-                        <img class="img-fluid my-auto" src="static/images/photo.png" alt="photo">
+                    <div class="col-md col-12" v-if="$route.path !== '/work'">
+                      <img v-if="$route.path === '/'" class="img-fluid d-block d-md-none" src="static/images/photo.png" alt="photo">
+                      <img class="img-fluid d-none d-md-block mt-5" src="static/images/photo.png" alt="photo">
                     </div>
                 </transition>
 
@@ -23,11 +28,13 @@
 <script>
 import AppFooter from './components/Footer'
 import AppModal from './components/ModalWindow'
+import AppNav from './components/Nav'
 
 export default {
     components: {
         AppFooter,
-        AppModal
+        AppModal,
+        AppNav
     },
     data() {
         return {
@@ -50,6 +57,10 @@ body {
 .main {
     background: #45f5f51f;
     height: 750px;
+}
+
+.appContainerNav {
+  height: 100px;
 }
 
 .entry_right-enter-active {
@@ -79,4 +90,9 @@ body {
     from{transform: translateX(0px);}
     to{transform: translateX(2000px);}
 }
+
+@media (max-width: 767px){
+  .main {height: 100%;}
+}
+
 </style>

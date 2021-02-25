@@ -1,5 +1,5 @@
 <template>
-    <div id="menu">
+    <div id="menu" :class="{'text-right': !menu}">
         <div class="btn-group-vertical" v-if="menu">
             <router-link v-for="btnObj in mainMenu" :to="btnObj.page"
                          class="btn mt-3 btn-home border-dark font-weight-bold"
@@ -8,20 +8,19 @@
             </router-link>
         </div>
         <div class="btn-group my-5" v-else>
-            <router-link v-for="btnObj in btnGroup" :to="btnObj.page"
+            <router-link v-for="btnObj in btnMenu" :to="btnObj.page"
                          class="btn mr-3 btn-home border-dark font-weight-bold"
                          :key="btnObj.key">
                 {{ btnObj.name }}
             </router-link>
         </div>
-
     </div>
 </template>
 
 <script>
 export default {
     name: "Nav",
-    props: ['menu'],
+    props: ['menu', 'nav'],
     data() {
         return {
             btnGroup: [
@@ -45,7 +44,9 @@ export default {
                     page: '/contacts',
                     key: 'contacts'
                 }
-            ]
+            ],
+            itemSize: 0,
+            btnMenu: []
         }
     },
     computed: {
@@ -53,7 +54,30 @@ export default {
             let mainBtn = this.btnGroup;
             mainBtn.splice(0, 1);
             return mainBtn;
+        },
+        btnMenu() {
+            let menu = this.btnGroup;
+                if(this.itemSize < 570 && menu.length === 4) {
+                    for (let i = 0; i < menu.length; i++) {
+                        if(menu[i].page === this.$route.path) {
+                            menu.splice(i, 1);
+                        }
+                    }
+                }
+            return menu;
         }
+    },
+    methods: {
+        onResize() {
+            this.itemSize = document.documentElement.clientWidth;
+        }
+    },
+    created() {
+        window.addEventListener('resize', this.onResize);
+        this.onResize();
+    },
+    beforeDestroy() {
+        window.removeEventListener('resize', this.onResize);
     }
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
-        <div class="col-sm text-center">
-            <app-nav :menu='false' class="mb-5"></app-nav>
+        <div class="col-sm text-center mb-5">
             <h2 class="text-uppercase mt-5">О СЕБЕ</h2>
             <p class="h5 font-italic font-weight-bold my-4">
                 Привет, я Анна. Начинающий веб-разработчик, имею практические навыки верстки, работы с
@@ -22,13 +21,9 @@
 </template>
 
 <script>
-import AppNav from '../components/Nav'
 
 export default {
     name: "About",
-    components: {
-        AppNav
-    },
     data() {
         return {
             skills: [

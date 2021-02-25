@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .logo {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .social a i {

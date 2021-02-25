@@ -1,8 +1,7 @@
 <template>
     <div class="col-sm text-right">
-        <app-nav :menu='false'></app-nav>
         <div class="row cardContainer">
-            <div class="p-2 text-center col-md-4" v-for="(item, i) in site" :key="i"
+            <div class="p-2 text-center col-md-6 col-lg-4" v-for="(item, i) in site" :key="i"
                  @click="showDesc(i)">
                     <transition name="showCard" mode="out-in">
                         <img v-if="!showText[i]" :src="item.image" class="appCard" :alt="item.altImage">
@@ -18,14 +17,10 @@
 </template>
 
 <script>
-import AppNav from '../components/Nav';
 import axios from 'axios';
 
 export default {
     name: "Work",
-    components: {
-      AppNav
-    },
     data() {
         return {
             site: [],

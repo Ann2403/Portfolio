@@ -1,6 +1,5 @@
 <template>
-    <div class="col-sm text-center">
-        <app-nav :menu='false'></app-nav>
+    <div class="col-sm text-center my-5">
         <h3 class="text-uppercase">Контакты</h3>
         <div class="row my-4">
             <p class="font-italic font-weight-bold col-sm">
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import AppNav from '../components/Nav'
 import AppInput from '../components/Input'
 import AppArea from '../components/TextArea'
 import axios from 'axios'
@@ -39,7 +37,6 @@ import axios from 'axios'
 export default {
     name: "Contacts",
     components: {
-        AppNav,
         AppInput,
         AppArea
     },

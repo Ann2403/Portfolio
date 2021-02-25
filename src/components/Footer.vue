@@ -2,12 +2,12 @@
     <footer class="mt-2">
         <div class="container">
             <div class="row">
-                <div class="text-right pr-5 hidden-xs hidden-sm col-md-6">
+                <div class="text-center text-right-sm pr-sm-5 col-sm-6">
                     <a class="text-dark" href="mailto:zubenko9529@gmail.com"><i class="fa fa-envelope"></i>
                         zubenko9529@gmail.com
                     </a>
                 </div>
-                <div class="hidden-xs hidden-sm col-md-6 pl-5">
+                <div class="text-center col-sm-6 pl-sm-5">
                     <ul>
                         <li class="d-inline mr-3" v-for="(social, i) in socialList" :key="i">
                             <a class="text-dark" :href="social.link" target="_blank"><i :class="social.icon"></i></a>
