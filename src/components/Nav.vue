@@ -8,8 +8,8 @@
             </router-link>
         </div>
         <div class="btn-group my-5" v-else>
-            <router-link v-for="btnObj in btnMenu" :to="btnObj.page"
-                         class="btn mr-3 btn-home border-dark font-weight-bold"
+            <router-link v-for="btnObj in btnGroup" :to="btnObj.page"
+                         class="btn p-1 p-md-2 mr-2 mr-md-3 btn-home border-dark font-weight-bold"
                          :key="btnObj.key">
                 {{ btnObj.name }}
             </router-link>
@@ -54,17 +54,6 @@ export default {
             let mainBtn = this.btnGroup;
             mainBtn.splice(0, 1);
             return mainBtn;
-        },
-        btnMenu() {
-            let menu = this.btnGroup;
-                if(this.itemSize < 570 && menu.length === 4) {
-                    for (let i = 0; i < menu.length; i++) {
-                        if(menu[i].page === this.$route.path) {
-                            menu.splice(i, 1);
-                        }
-                    }
-                }
-            return menu;
         }
     },
     methods: {
@@ -94,5 +83,9 @@ export default {
 
 .router-link-exact-active {
     box-shadow: 0 0 4px 3px #0070ff9e;
+}
+
+@media (max-width: 767px){
+  .router-link-active:hover {transform: none;}
 }
 </style>

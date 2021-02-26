@@ -2,46 +2,60 @@
     "sites":[
         {
             "title": "Мини игры",
-            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
+            "description": "Первое знакомство с JavaScript. Работа с элементами страницы и браузерными событиями",
+            "technologies": "JavaScript, CSS",
             "image": "static/images/game.png",
             "altImage": "photo game",
-            "reference": "http://game.annazubenko.ru/"
+            "reference": "http://game.annazubenko.ru/",
+            "git": "https://github.com/Ann2403/Game"
+        },
+        {
+            "title": "Чат",
+            "description": "Первое знакомство с РНР. Знакомство с архитектурой проэктов, работа с базой данных МySQL и сookies",
+            "technologies": "PHP, CSS, JavaScript, AJAX",
+            "image": "static/images/chat.png",
+            "reference": "http://f0476748.xsph.ru/",
+            "git": "https://github.com/Ann2403/Chat"
+        },
+        {
+            "title": "адаптивная верстка",
+            "description": "Адаптивная верстка по PSD макетам, знакомство с SASS",
+            "technologies": "HTML, SASS, Bootstrap 4, JavaScript",
+            "image": "static/images/uber.png",
+            "reference": "https://uber.annazubenko.ru/",
+            "git": "https://github.com/Ann2403/-web-developer-course-2020/tree/main/bootstrap4/practice"
+        },
+        {
+            "title": "верстка по макету",
+            "description": "Адаптация верстки под мобильные устройства. Работа с плагинами: Slick Slider, MaskedInput, Validate, WOW, Animate.css. Реализация отправки заявок на почту.",
+            "technologies": "HTML, SCSS, Gulp, jQuery, РНР",
+            "image": "static/images/runSmart.png",
+            "reference": "https://pulsometer.annazubenko.ru/",
+            "git": "https://github.com/Ann2403/-bem-method"
         },
         {
             "title": "Мини игры",
             "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
+            "technologies": "",
+            "image": "static/images/game.png",
+            "reference": "game.annazubenko.ru",
+            "git": "https://smart-stock.fashevsky.ru/"
         },
         {
             "title": "Мини игры",
             "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
+            "technologies": "",
+            "image": "static/images/game.png",
+            "reference": "game.annazubenko.ru",
+            "git": "https://github.com/Ann2403/Game"
         },
         {
             "title": "Мини игры",
             "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
-        },
-        {
-            "title": "Мини игры",
-            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
-        },
-        {
-            "title": "Мини игры",
-            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
-        },
-        {
-            "title": "Мини игры",
-            "description": "Мороженое, приготовленное на основе итальянского шоколада, с добавлением шоколадного соуса.",
-            "image": "images/game.png",
-            "reference": "game.annazubenko.ru"
+            "technologies": "",
+            "image": "static/images/game.png",
+            "reference": "game.annazubenko.ru",
+            "git": "https://github.com/Ann2403/Game"
         }
     ]
 }

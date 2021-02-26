@@ -1,19 +1,24 @@
 <template>
-    <div class="col-sm text-right">
-        <div class="row cardContainer">
-            <div class="p-2 text-center col-md-6 col-lg-4" v-for="(item, i) in site" :key="i"
+    <div class="col-sm">
+        <div class="row cardContainer justify-content-center">
+            <div class="p-2 text-center col-sm-9 col-md-6 col-lg-4" v-for="(item, i) in site" :key="i"
                  @click="showDesc(i)">
                     <transition name="showCard" mode="out-in">
                         <img v-if="!showText[i]" :src="item.image" class="appCard" :alt="item.altImage">
-                        <div v-else class="appCard align-middle">
-                            <h5 class="card-title">{{ item.title }}</h5>
-                            <p class="card-text">{{item.description }}</p>
-                            <a :href="item.reference" target="_blank" class="btn btn-primary">Перейти</a>
+                        <div v-else class="appCard p-3 d-flex flex-column justify-content-center align-items-center border border-dark">
+                            <h5 class="card-title text-uppercase font-weight-bold">{{ item.title }}</h5>
+                            <p class="card-text"><strong>Описание: </strong>{{item.description }}</p>
+                            <p class="card-text mb-4"><strong>Технологии: </strong>{{item.technologies }}</p>
+                            <div class="col">
+                                <a :href="item.reference" target="_blank" class="btn btn-primary mr-3">Перейти</a>
+                                <a :href="item.git" target="_blank" class="btn btn-primary">Git</a>
+                            </div>
+
                         </div>
                     </transition>
             </div>
         </div>
-    </div> 
+    </div>
 </template>
 
 <script>
